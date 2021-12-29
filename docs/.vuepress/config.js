@@ -1,35 +1,45 @@
 module.exports = {
-    title: '...',
-    description: '...',
+    // 站点配置
+    lang: 'zh-CN',
+    title: '你好， VuePress ！',
+    description: '这是我的第一个 VuePress 站点',
+  
+    // 主题和它的配置
+    theme: '@vuepress/theme-default',
     themeConfig: {
-        nav: [
-            { text: '首页', link: '/' },
-            { 
-                text: 'JavaScript 博客', 
-                items: [
-                    { text: 'Github', link: '' },
-                    { text: '掘金', link: '' }
-                ]
-            }
-        ],
-        sidebar: [
+      logo: 'https://vuejs.org/images/logo.png',
+      navbar: [
+        // NavbarItem
+        {
+          text: 'Foo',
+          link: '/foo/',
+        },
+        // NavbarGroup
+        {
+          text: 'Group',
+          children: ['/group/foo.md', '/group/bar.md'],
+        },
+        // 字符串 - 页面文件路径
+        '/bar/README.md',
+      ],
+      sidebar: [
+        // SidebarItem
+        {
+          text: 'Foo',
+          link: '/foo/',
+          children: [
+            // SidebarItem
             {
-                title: '欢迎学习',
-                path: '/',
-                collapsable: false, // 不折叠
-                children: [
-                    { title: "学前必读", path: "/" }
-                ]
+              text: 'github',
+              link: 'https://github.com',
+              children: [],
             },
-            {
-              title: "基础学习",
-              path: '/handbook/ConditionalTypes',
-              collapsable: false, // 不折叠
-              children: [
-                { title: "条件类型", path: "/handbook/ConditionalTypes" },
-                { title: "泛型", path: "/handbook/Generics" }
-              ],
-            }
-          ]
-    }
-}
+            // 字符串 - 页面文件路径
+            '/foo/bar.md',
+          ],
+        },
+        // 字符串 - 页面文件路径
+        '/bar/README.md',
+      ],
+    },  
+  }
